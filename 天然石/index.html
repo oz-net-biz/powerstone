@@ -6,6 +6,17 @@
 <title>天然石 即答カンペ | LIVE販売サポート</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
+  /* タッチ操作最適化 */
+  @media (pointer: coarse) {
+    .filter-btn, .kana-btn, .tag-opt, .bd-chip {
+      min-height: 36px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .queue-btn, .live-btn { min-height: 38px; }
+    .card { -webkit-tap-highlight-color: transparent; }
+  }
   /* フリガナ (ruby) */
   ruby { ruby-align: center; }
   rt {
@@ -2090,6 +2101,193 @@
     .hotkey { display: none; }
     .grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
     .show-hero .heading h1 { font-size: 1.5rem; }
+  }
+  /* =========================================
+     スマホ用レスポンシブ (〜768px)
+     ========================================= */
+  @media (max-width: 768px) {
+    /* ----- トップバー ----- */
+    .topbar { padding: 8px 10px; }
+    .topbar-row1 {
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .brand { font-size: 0.85rem; width: 100%; }
+    .brand .sub { display: none; }
+    .search-wrap { order: 10; width: 100%; }
+    #search { padding: 9px 36px 9px 36px; font-size: 0.95rem; }
+    .hotkey { display: none; }
+    /* ボタン群を横並びスクロール */
+    .view-mode-group { order: 1; }
+    .queue-btn, .live-btn {
+      padding: 6px 8px;
+      font-size: 0.75rem;
+    }
+    .queue-btn .queue-count {
+      padding: 1px 5px;
+      font-size: 0.7rem;
+      min-width: 18px;
+    }
+    .live-btn { padding: 6px 10px; font-size: 0.75rem; }
+    /* フィルタ行 */
+    .topbar-row2 { padding-bottom: 4px; }
+    .filter-btn { padding: 5px 10px; font-size: 0.72rem; }
+    .topbar-row3 { margin-top: 4px; }
+    .kana-btn { min-width: 26px; padding: 3px 6px; font-size: 0.78rem; }
+    /* ----- ステータスバー ----- */
+    .status-bar { padding: 6px 12px; font-size: 0.75rem; }
+    /* ----- メイン ----- */
+    main { padding: 8px 8px; }
+    /* カテゴリタイトル */
+    .cat-title { font-size: 0.9rem; padding: 5px 10px; margin: 6px 0 4px; }
+    .cat-title .cnt { font-size: 0.65rem; }
+    /* カードグリッド */
+    .grid-normal { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 6px; }
+    .grid-dense { grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 4px; }
+    .grid-ultra { grid-template-columns: repeat(auto-fill, minmax(50px, 1fr)); gap: 3px; }
+    .grid-list { gap: 3px; }
+    /* ノーマルカード */
+    .card .info { padding: 6px 8px 8px; }
+    .card h3 { font-size: 0.85rem; }
+    .card .en { font-size: 0.55rem; }
+    .card .cn-mini { font-size: 0.68rem; padding: 2px 5px; }
+    .card .cn-mini .kn { font-size: 0.62rem; }
+    .card .mini-tag { font-size: 0.58rem; padding: 2px 5px; }
+    .card .stock-card-btn, .card .add-queue-btn {
+      width: 26px; height: 26px; font-size: 0.8rem;
+    }
+    .card .stock-card-btn { right: 34px; }
+    /* リストカード */
+    .card.list { padding: 5px 6px; gap: 6px; }
+    .card.list .thumb { width: 44px; height: 44px; }
+    .card.list .list-row-1 h3 { font-size: 0.82rem; }
+    .card.list .list-row-1 .en { font-size: 0.58rem; }
+    .card.list .list-actions { gap: 2px; }
+    .card.list .stock-card-btn, .card.list .add-queue-btn { width: 24px; height: 24px; font-size: 0.75rem; }
+    /* 超密カード */
+    .ultra-name { font-size: 0.5rem; }
+    .cat-inline-chip { border-width: 1.5px; }
+    .cat-inline-num { font-size: 1rem; }
+    .cat-inline-text { font-size: 0.48rem; }
+    /* ----- SHOW MODE (全画面) ----- */
+    .show-mode { padding: 0; }
+    .show-panel { border-radius: 0; max-width: 100%; min-height: 100vh; }
+    .show-close { top: 8px; right: 8px; width: 36px; height: 36px; font-size: 1.3rem; }
+    .show-nav { width: 36px; height: 36px; font-size: 1.2rem; }
+    .show-nav.prev { left: 4px; }
+    .show-nav.next { right: 4px; }
+    .show-hero {
+      grid-template-columns: 1fr;
+      padding: 16px 14px 12px;
+      gap: 12px;
+    }
+    .show-hero .big-img { max-width: 180px; margin: 0 auto; }
+    .show-hero .heading h1 { font-size: 1.4rem; }
+    .show-hero .heading .en-big { font-size: 0.75rem; }
+    .show-hero .heading .big-tag { font-size: 0.7rem; padding: 3px 8px; }
+    .show-hero .price-big .main { font-size: 1.2rem; }
+    .show-body {
+      grid-template-columns: 1fr;
+      padding: 12px 14px 16px;
+      gap: 10px;
+    }
+    .sec-box { padding: 10px 12px; }
+    .sec-box h4 { font-size: 0.8rem; margin-bottom: 6px; }
+    .sec-box .point { font-size: 0.9rem; }
+    .sec-box .text { font-size: 0.82rem; }
+    .sec-box .effect-list { font-size: 0.85rem; }
+    .sec-box.cn-box { grid-column: 1; }
+    .sec-box.name-box { grid-column: 1; }
+    .sec-box.look-box { grid-column: 1; }
+    .sec-box.hardness-box { grid-column: 1; }
+    .sec-box.sets-box { grid-column: 1; }
+    .cn-zh { font-size: 1.4rem; }
+    .cn-read { font-size: 0.85rem; }
+    .cn-read strong { font-size: 0.95rem; }
+    .name-line { font-size: 0.78rem; flex-wrap: wrap; }
+    .name-lbl { font-size: 0.7rem; }
+    /* 硬度メーター */
+    .h-num { font-size: 1.8rem; }
+    .h-label { font-size: 0.78rem; }
+    .h-bar { height: 24px; font-size: 0.7rem; }
+    .h-plus, .h-warn, .h-care, .h-examples { font-size: 0.75rem; padding: 6px 10px; }
+    .show-cta { margin: 14px 14px 16px; padding: 10px; font-size: 0.82rem; }
+    .show-add-queue { font-size: 0.78rem; padding: 6px 12px; }
+    /* ----- モーダル共通 ----- */
+    .queue-modal { padding: 0; }
+    .queue-panel, .cust-panel, .cust-edit-panel,
+    .faq-panel, .sets-panel, .gloss-panel,
+    .stock-panel, .purchase-panel {
+      border-radius: 0;
+      max-width: 100%;
+      max-height: 100vh;
+      height: 100vh;
+    }
+    .queue-header { padding: 12px 14px; }
+    .queue-header h2 { font-size: 1rem; }
+    .queue-hint { padding: 8px 14px; font-size: 0.72rem; }
+    .stock-toolbar { padding: 8px 12px; flex-wrap: wrap; }
+    .stock-toolbar input { font-size: 0.82rem; }
+    /* FAQ */
+    .faq-item summary { padding: 10px 14px; }
+    .faq-q { font-size: 0.88rem; }
+    .faq-a { padding: 10px 14px 14px 32px; font-size: 0.85rem; }
+    /* セット */
+    .sets-list { grid-template-columns: 1fr; padding: 10px 12px; }
+    /* 用語集 */
+    .gloss-list { padding: 4px 8px 12px; }
+    .gloss-mini-icon { width: 32px; height: 32px; }
+    .gloss-summary-text .g-term { font-size: 0.82rem; }
+    .gloss-summary-text .g-cn { font-size: 0.68rem; }
+    .gloss-expand { padding: 6px 10px 8px 42px; font-size: 0.78rem; }
+    /* 顧客管理 */
+    .cust-list { grid-template-columns: 1fr; }
+    .cust-card-head { gap: 8px; }
+    .cust-avatar { width: 38px; height: 38px; font-size: 1rem; }
+    .cust-quick-info { font-size: 0.72rem; }
+    .cust-stats { font-size: 0.65rem; flex-wrap: wrap; }
+    /* 顧客編集フォーム */
+    .chip-field { padding: 8px 10px; }
+    .chip-label { font-size: 0.8rem; }
+    .tag-opt { font-size: 0.7rem; padding: 4px 8px; }
+    .bd-chip { width: 28px; height: 26px; font-size: 0.72rem; }
+    .field-row { grid-template-columns: 1fr; gap: 4px; }
+    .field-row label { font-size: 0.8rem; }
+    /* 購入モーダル */
+    .pp-stone-grid { grid-template-columns: repeat(auto-fill, minmax(70px, 1fr)); max-height: 200px; }
+    .pp-price-presets { grid-template-columns: repeat(3, 1fr); }
+    .pp-price-btn { font-size: 0.78rem; padding: 7px 4px; }
+    /* Queue */
+    .queue-item { padding: 8px 12px; }
+    .queue-num { width: 24px; height: 24px; font-size: 0.75rem; }
+    .queue-thumb { width: 42px; height: 42px; }
+    .queue-name .jp { font-size: 0.85rem; }
+    .queue-actions button { width: 28px; height: 28px; font-size: 0.85rem; }
+    /* 在庫管理 */
+    .stock-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
+    /* LIVE インジケータ */
+    .live-indicator { padding: 6px 12px; font-size: 0.8rem; gap: 8px; }
+    .live-badge { font-size: 0.68rem; padding: 2px 8px; }
+    .live-pos { font-size: 0.9rem; }
+    /* オートコンプリート */
+    .autocomplete { max-height: 300px; }
+    .ac-thumb { width: 40px; height: 40px; }
+    .ac-name { font-size: 0.85rem; }
+    .ac-sub { font-size: 0.65rem; }
+    .ac-cn { font-size: 0.68rem; }
+    /* フッター */
+    footer { padding: 20px 14px; }
+    footer .note { font-size: 0.65rem; }
+  }
+  /* 超小型スマホ (〜400px) */
+  @media (max-width: 400px) {
+    .brand { font-size: 0.78rem; }
+    .grid-normal { grid-template-columns: repeat(2, 1fr); }
+    .grid-dense { grid-template-columns: repeat(3, 1fr); }
+    .grid-ultra { grid-template-columns: repeat(auto-fill, minmax(44px, 1fr)); }
+    .card h3 { font-size: 0.78rem; }
+    .show-hero .heading h1 { font-size: 1.2rem; }
+    .queue-btn, .live-btn { padding: 5px 6px; font-size: 0.7rem; }
   }
   /* ===== Footer ===== */
   footer {
